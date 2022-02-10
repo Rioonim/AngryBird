@@ -1,0 +1,112 @@
+/* 모든태그 */
+*{
+  text-decoration: none; /* 모든링크의 및줄 없애기 */
+  color: white;
+}
+
+
+body{
+  margin: 0;
+  font-family: 'Source Sans Pro'
+}
+.loge_png{
+  width: 20px;
+  height: 20px;
+  object-fit: cover; /*로세로 비율은 유지하면서 컨테이너에 꽉 차도록 설정 */
+}
+
+.link_png{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.toogl_png {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+/* nav전체 */
+.navbar{
+  display: flex; /* 한줄의 하나씩 */
+  justify-content: space-between; /* 중간에 간격넣어주기, 같은 중심축에서 넣기 */
+  align-items: center; /* 아이탬들을 수직적으로 배치 */
+  background-color: #263343;
+  padding: 8px 12px;
+}
+
+/* nav로고 */
+.navbar_logo{
+  font-size: 24px;
+}
+
+/* nav메뉴 */
+.navbar_menu {
+  display: flex;
+  list-style: none; /* 앞에 동그라미 지우기 */
+  padding-left: 0;
+}
+
+/* nav메뉴 마우스 올리면 배경색 변함(하이라이트) */
+.navbar_menu li:hover {
+  background-color: #d49466;
+  border-radius: 10px;  /* 모서리 둥글게 만들기 */
+}
+
+/* nav메뉴 아이템 */
+.navbar_menu li {
+  padding: 8px 12px; /*패딩은 클릭범위가 넓고 마진은 줄어듦 */
+}
+
+/* nav링크 */
+.navbar_links {
+  display: flex;
+  padding-left: 0;
+}
+
+/* 토글 수동적으로 나와 오른쪽위에 올리기 */
+.navbar_toogleBtn {
+  position: absolute;  /* 문서흐름에서 나와서 포지션 */
+  right: 32px;
+  display: none;
+  }
+/* 반응형 */
+@media screen and (max-width: 768px) {
+  /* 메뉴 밑으로내리기 */
+  .navbar{
+    flex-direction: column;  /* 중심축은 수직 */
+    align-items: flex-start;  /* 중심축 수평으로 만들기 */
+    padding: 8px 24px; /* 화면에 꽉찬느낌때문에 padding넣어줌 */
+    }
+  .navbar_menu {
+    display: none;
+    flex-direction: column; /* 메뉴한줄에 하나씩 보여줌 */
+    align-items: center; /* 중심축 수평에서 가운데로 - 반응없음:메뉴 넓이가 작아서 */
+    width: 100%;
+    }
+
+/* 메뉴에 하이라이트 주기 */
+  .navbar_menu li{
+    width: 100%; /* 반응없음-텍스트가 왼쪽으로 자동정렬되서 */
+    text-align: center;
+  }
+
+/* nav링크 가운데 정렬 */
+  .navbar_links {
+    display: none;
+    justify-content: center; /* 반응없음-너비 100%아니여서 */
+    width: 100%;
+  }
+
+/*토글 화면이 작아졌을때만 나오게하기*/
+  .navbar_toogleBtn {
+    display: block;
+  }
+
+  .navbar_menu.active,
+  .navbar_links.active {
+    display: flex;
+  }
+
+}
